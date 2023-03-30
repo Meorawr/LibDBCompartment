@@ -1,6 +1,6 @@
 # LibDBCompartment
 
-# v3
+## v3
 - Improved parameter validation and error messages.
 
 ## v2
