@@ -324,7 +324,7 @@ local function LibDBCompartment_SetupTestObjects()
     -- Tooltip re-anchor test; selecting this will make built-in tooltips
     -- anchor to the center of the screen.
 
-    local TestObject5 = LibDataBroker:NewDataObject("LibDBCompartmentTest3");
+    local TestObject5 = LibDataBroker:NewDataObject("LibDBCompartmentTest5");
     TestObject5.label = "LibDBCompartment: Tooltip Anchor Test";
 
     TestObject5.OnClick = function()
