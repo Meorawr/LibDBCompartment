@@ -11,9 +11,9 @@
 ## X-Category: Libraries
 ## X-License: Public Domain
 ## X-Website: https://github.com/Meorawr/LibDBCompartment
-## X-Curse-Project-ID:
-## X-Wago-ID:
-## X-WoWI-ID:
+## X-Curse-Project-ID: 844143
+## X-Wago-ID: QN5mDvNB
+## X-WoWI-ID: 26567
 
 Libs\LibStub\LibStub.lua
 
