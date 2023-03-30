@@ -1,6 +1,6 @@
 -- SPDX-License-Identifier: Unlicense
 
-local LibDBCompartment = LibStub:NewLibrary("LibDBCompartment-1.0", 2);
+local LibDBCompartment = LibStub:NewLibrary("LibDBCompartment-1.0", 3);
 
 if not LibDBCompartment then
     return;
@@ -33,8 +33,9 @@ function LibDBCompartment:IsRegistered(name)
 end
 
 function LibDBCompartment:Register(name, dataObject)
-    assert(not self:IsRegistered(name), "attempted to register a duplicate compartment entry name");
-    assert(type(dataObject) == "table", "attempted to register an invalid data object");
+    assert(type(name) == "string", "bad argument #1 to 'Register': expected string");
+    assert(not self:IsRegistered(name), "bad argument #1 to 'Register': name is already registered");
+    assert(LibDataBroker:GetNameByDataObject(dataObject), "bad argument #2 to 'Register': invalid data object");
 
     local buttonInfo = {};
     self.buttons[name] = buttonInfo;
@@ -48,7 +49,7 @@ function LibDBCompartment:Register(name, dataObject)
 end
 
 function LibDBCompartment:Refresh(name)
-    local buttonInfo = self:GetDropDownButtonInfo(name);
+    local buttonInfo = assert(self:GetDropDownButtonInfo(name), "bad argument #1 to 'Refresh': name not registered");
     local dataObject = self:GetDataObject(name);
 
     -- The following fields are dynamic and are always replaced when this
@@ -92,10 +93,12 @@ end
 --
 
 function LibDBCompartment:Show(name)
+    assert(self:IsRegistered(name), "bad argument #1 to 'Show': name not registered");
     self:SetShown(name, true);
 end
 
 function LibDBCompartment:Hide(name)
+    assert(self:IsRegistered(name), "bad argument #1 to 'Hide': name not registered");
     self:SetShown(name, false);
 end
 
@@ -111,11 +114,12 @@ function LibDBCompartment:IsShown(name)
 end
 
 function LibDBCompartment:SetShown(name, shown)
+    local buttonInfo = assert(self:GetDropDownButtonInfo(name), "bad argument #1 to 'SetShown': name not registered");
+
     if not AddonCompartmentFrame then
         return;
     end
 
-    local buttonInfo = self:GetDropDownButtonInfo(name);
     local index = tIndexOf(AddonCompartmentFrame.registeredAddons, buttonInfo);
 
     if shown and not index then
@@ -143,6 +147,9 @@ function LibDBCompartment:GetTooltipAnchor()
 end
 
 function LibDBCompartment:SetTooltipAnchor(anchor)
+    assert(type(anchor) == "table", "bad argument #1 to 'SetTooltipAnchor': expected table");
+    assert(type(anchor.Get) == "function", "bad argument #1 to 'SetTooltipAnchor': invalid 'Get' field on anchor");
+
     self.tooltipAnchor = anchor;
 end
 
@@ -220,8 +227,19 @@ function LibDBCompartment:GetDataObjectLabel(dataObject)
         label = dataObject.label;
     elseif type(dataObject.tocname) == "string" then
         label = GetAddOnMetadata(dataObject.tocname, "Title");
-    else
+    end
+
+    -- Two fallbacks; use the data object name first, and if that is for
+    -- whatever reason not a string use whatever name the caller registered
+    -- into us with. This is to ensure that one bad entry doesn't brick the
+    -- sort comparator in patch 10.1.
+
+    if type(label) ~= "string" then
         label = LibDataBroker:GetNameByDataObject(dataObject);
+    end
+
+    if type(label) ~= "string" then
+        label = self.names[dataObject];
     end
 
     return label;
