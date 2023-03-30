@@ -1,0 +1,22 @@
+package-as: LibDBCompartment
+enable-nolib-creation: no
+
+ignore:
+  - Libs/*/*.rockspec
+  - Libs/*/*.toc
+  - Libs/*/changelog.*
+  - Libs/*/CHANGELOG.*
+  - Libs/*/docs
+  - Libs/*/examples
+  - Libs/*/README.*
+  - Libs/*/tests
+  - README.md
+  - LICENSE
+  - Makefile
+
+externals:
+  Libs/LibStub: https://repos.curseforge.com/wow/libstub/trunk
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
