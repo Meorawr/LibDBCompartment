@@ -8,9 +8,13 @@ In game flavors that don't support the addon compartment the full API of the lib
 
 ## Dependencies
 
-The library is versioned through [LibStub](https://www.curseforge.com/wow/addons/libstub) and is assumed to be loaded by any consuming addon. The library does not hard-embed or load any dependencies.
+The following libraries must be loaded into the environment by addons prior to loading LibDBCompartment. The library does not hard-embed or attempt to load these dependencies itself.
 
-Due to [WoWUIBugs#299](https://github.com/Stanzilla/WoWUIBugs/issues/299) it is **strongly recommended** that [TaintLess](https://www.townlong-yak.com/addons/taintless) also be embedded and loaded by consuming addons, otherwise integration of the addon compartment may lead to forbidden action errors when Edit Mode is entered.
+- [CallbackHandler](https://www.curseforge.com/wow/addons/callbackhandler)
+- [LibDataBroker](https://github.com/tekkub/libdatabroker-1-1)
+- [LibStub](https://www.curseforge.com/wow/addons/libstub)
+
+Additionally due to [WoWUIBugs#299](https://github.com/Stanzilla/WoWUIBugs/issues/299) it is **strongly recommended** that [TaintLess](https://www.townlong-yak.com/addons/taintless) also be embedded and loaded by consuming addons, otherwise integration of the addon compartment may lead to forbidden action errors when Edit Mode is entered.
 
 ## Embedding
 
