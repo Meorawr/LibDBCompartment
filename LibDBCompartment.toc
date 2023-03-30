@@ -4,6 +4,7 @@
 ## Interface-Wrath: 30401
 ## Title: LibDBCompartment
 ## Notes: Library for handling integration into Blizzards' minimap addon compartment.
+## IconAtlas: UI-HUD-MicroMenu-SpellbookAbilities-Up
 ## Author: Daniel "Meorawr" Yates <me@meorawr.io>
 ## Version: @project-version@
 ## LoadOnDemand: 1

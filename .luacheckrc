@@ -12,6 +12,8 @@ exclude_files = {
 
 globals = {
     "AddonCompartmentFrame.registeredAddons",
+    "SLASH_LDBC1",
+    "SlashCmdList",
 };
 
 read_globals = {
@@ -20,6 +22,7 @@ read_globals = {
     "AnchorUtil.CreateAnchor",
     "C_AddOns.GetAddOnMetadata",
     "CreateFrame",
+    "GameTooltip",
     "GetAddOnMetadata",
     "LibStub.GetLibrary",
     "LibStub.NewLibrary",
