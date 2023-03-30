@@ -252,7 +252,8 @@ function LibDBCompartment:GetDataObjectIcon(dataObject)
     if dataObject.icon then
         icon = dataObject.icon;
     elseif type(dataObject.tocname) == "string" then
-        icon = GetAddOnMetadata(dataObject.tocname, "IconTexture") or GetAddOnMetadata(dataObject.tocname, "IconAtlas");
+        local tocname = dataObject.tocname;
+        icon = GetAddOnMetadata(tocname, "IconTexture") or GetAddOnMetadata(tocname, "IconAtlas");
     end
 
     return icon;
