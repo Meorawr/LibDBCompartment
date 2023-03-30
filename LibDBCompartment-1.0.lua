@@ -256,65 +256,65 @@ LibDBCompartment:OnLoad();
 --@do-not-package@
 
 local function LibDBCompartment_SetupTestObjects()
-        -- Test with a manuallly set label, icon, and basic tooltip.
+    -- Test with a manuallly set label, icon, and basic tooltip.
 
-        local TestObject1 = LibDataBroker:NewDataObject("LibDBCompartmentTest1");
-        TestObject1.label = "LibDBCompartment: Basic Test";
-        TestObject1.icon = [[Interface\Icons\Ambush]];
-        TestObject1.OnClick = print;
+    local TestObject1 = LibDataBroker:NewDataObject("LibDBCompartmentTest1");
+    TestObject1.label = "LibDBCompartment: Basic Test";
+    TestObject1.icon = [[Interface\Icons\Ambush]];
+    TestObject1.OnClick = print;
 
-        TestObject1.OnTooltipShow = function(tooltip)
-            tooltip:SetText("Hello!");
-        end;
+    TestObject1.OnTooltipShow = function(tooltip)
+        tooltip:SetText("Hello!");
+    end;
 
-        LibDBCompartment:Register("LibDBCompartmentTest1", TestObject1);
+    LibDBCompartment:Register("LibDBCompartmentTest1", TestObject1);
 
-        -- Test with a complex tooltip and TOC-based name/icon inference.
+    -- Test with a complex tooltip and TOC-based name/icon inference.
 
-        local TestObject2 = LibDataBroker:NewDataObject("LibDBCompartmentTest2");
-        TestObject2.tocname = "LibDBCompartment";
+    local TestObject2 = LibDataBroker:NewDataObject("LibDBCompartmentTest2");
+    TestObject2.tocname = "LibDBCompartment";
 
-        TestObject2.OnEnter = function(button)
-            GameTooltip:SetOwner(button, "ANCHOR_BOTTOMLEFT");
-            GameTooltip:SetText("Hello!");
-            GameTooltip:Show();
-        end;
+    TestObject2.OnEnter = function(button)
+        GameTooltip:SetOwner(button, "ANCHOR_BOTTOMLEFT");
+        GameTooltip:SetText("Hello!");
+        GameTooltip:Show();
+    end;
 
-        TestObject2.OnLeave = function(_)
-            GameTooltip:Hide();
-        end;
+    TestObject2.OnLeave = function(_)
+        GameTooltip:Hide();
+    end;
 
-        LibDBCompartment:Register("LibDBCompartmentTest2", TestObject2);
+    LibDBCompartment:Register("LibDBCompartmentTest2", TestObject2);
 
-        -- Test with a blank object; this should show no icon and default to
-        -- the name of the data object.
+    -- Test with a blank object; this should show no icon and default to
+    -- the name of the data object.
 
-        local TestObject3 = LibDataBroker:NewDataObject("LibDBCompartment: Blank Object Test");
-        LibDBCompartment:Register("LibDBCompartmentTest3", TestObject3);
+    local TestObject3 = LibDataBroker:NewDataObject("LibDBCompartment: Blank Object Test");
+    LibDBCompartment:Register("LibDBCompartmentTest3", TestObject3);
 
-        -- Visibility toggle test; selecting this will toggle visiblity of the
-        -- previous object.
+    -- Visibility toggle test; selecting this will toggle visiblity of the
+    -- previous object.
 
-        local TestObject4 = LibDataBroker:NewDataObject("LibDBCompartmentTest4");
-        TestObject4.label = "LibDBCompartment: Visibility Toggle Test";
+    local TestObject4 = LibDataBroker:NewDataObject("LibDBCompartmentTest4");
+    TestObject4.label = "LibDBCompartment: Visibility Toggle Test";
 
-        TestObject4.OnClick = function()
-            LibDBCompartment:SetShown("LibDBCompartmentTest3", not LibDBCompartment:IsShown("LibDBCompartmentTest3"));
-        end;
+    TestObject4.OnClick = function()
+        LibDBCompartment:SetShown("LibDBCompartmentTest3", not LibDBCompartment:IsShown("LibDBCompartmentTest3"));
+    end;
 
-        LibDBCompartment:Register("LibDBCompartmentTest4", TestObject4);
+    LibDBCompartment:Register("LibDBCompartmentTest4", TestObject4);
 
-        -- Tooltip re-anchor test; selecting this will make built-in tooltips
-        -- anchor to the center of the screen.
+    -- Tooltip re-anchor test; selecting this will make built-in tooltips
+    -- anchor to the center of the screen.
 
-        local TestObject5 = LibDataBroker:NewDataObject("LibDBCompartmentTest3");
-        TestObject5.label = "LibDBCompartment: Tooltip Anchor Test";
+    local TestObject5 = LibDataBroker:NewDataObject("LibDBCompartmentTest3");
+    TestObject5.label = "LibDBCompartment: Tooltip Anchor Test";
 
-        TestObject5.OnClick = function()
-            LibDBCompartment:SetTooltipAnchor(AnchorUtil.CreateAnchor("CENTER", UIParent, "CENTER", 0, 0));
-        end;
+    TestObject5.OnClick = function()
+        LibDBCompartment:SetTooltipAnchor(AnchorUtil.CreateAnchor("CENTER", UIParent, "CENTER", 0, 0));
+    end;
 
-        LibDBCompartment:Register("LibDBCompartmentTest5", TestObject5);
+    LibDBCompartment:Register("LibDBCompartmentTest5", TestObject5);
 end
 
 if (...) == "LibDBCompartment" then
