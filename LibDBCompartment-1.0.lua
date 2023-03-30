@@ -52,9 +52,8 @@ function LibDBCompartment:Refresh(name)
     local dataObject = self:GetDataObject(name);
 
     -- The following fields are dynamic and are always replaced when this
-    -- function is called based on object attributes. They will additionally be
-    -- replaced if the "label" or "icon" attributes on the linked object are
-    -- modified.
+    -- function is called based on object attributes, or if a refresh is
+    -- triggered through object attribute modifications.
 
     buttonInfo.text = self:GetDataObjectLabel(dataObject);
     buttonInfo.icon = self:GetDataObjectIcon(dataObject);
