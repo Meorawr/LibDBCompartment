@@ -1,6 +1,6 @@
 -- SPDX-License-Identifier: Unlicense
 
-local LibDBCompartment = LibStub:NewLibrary("LibDBCompartment-1.0", 1);
+local LibDBCompartment = LibStub:NewLibrary("LibDBCompartment-1.0", 2);
 
 if not LibDBCompartment then
     return;
@@ -214,12 +214,13 @@ function LibDBCompartment:OnDropDownButtonLeave(dataObject, button)
 end
 
 function LibDBCompartment:GetDataObjectLabel(dataObject)
+    local GetAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata;
     local label;
 
     if type(dataObject.label) == "string" then
         label = dataObject.label;
     elseif type(dataObject.tocname) == "string" then
-        label = select(2, GetAddOnInfo(dataObject.tocname));
+        label = GetAddOnMetadata(dataObject.tocname, "Title");
     else
         label = LibDataBroker:GetNameByDataObject(dataObject);
     end
@@ -228,7 +229,16 @@ function LibDBCompartment:GetDataObjectLabel(dataObject)
 end
 
 function LibDBCompartment:GetDataObjectIcon(dataObject)
-    return dataObject.icon;
+    local GetAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata;
+    local icon;
+
+    if dataObject.icon then
+        icon = dataObject.icon;
+    elseif type(dataObject.tocname) == "string" then
+        icon = GetAddOnMetadata(dataObject.tocname, "IconTexture") or GetAddOnMetadata(dataObject.tocname, "IconAtlas");
+    end
+
+    return icon;
 end
 
 function LibDBCompartment:GetTooltipAnchorPoint(button)
