@@ -1,12 +1,12 @@
-## Interface: 100007
+## Interface: 100100
 ## Interface-TBC: 20504
 ## Interface-Vanilla: 11403
 ## Interface-Wrath: 30401
 ## Title: LibDBCompartment
 ## Notes: Library for handling integration into Blizzards' minimap addon compartment.
-## IconAtlas: UI-HUD-MicroMenu-SpellbookAbilities-Up
 ## Author: Daniel "Meorawr" Yates <me@meorawr.io>
 ## Version: @project-version@
+## IconAtlas: minortalents-icon-book
 ## LoadOnDemand: 1
 
 ## X-Category: Libraries
