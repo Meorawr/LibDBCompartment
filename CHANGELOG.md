@@ -1,5 +1,8 @@
 # LibDBCompartment
 
+## v4
+- TOC bump for patch 10.1.0.
+
 ## v3
 - Improved parameter validation and error messages.
 
