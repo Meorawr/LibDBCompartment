@@ -1,5 +1,8 @@
 # LibDBCompartment
 
+## v5
+- Added support for compartment-specific callback functions on data objects.
+
 ## v4
 - TOC bump for patch 10.1.0.
 
