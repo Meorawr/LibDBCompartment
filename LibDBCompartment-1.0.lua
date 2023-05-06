@@ -1,6 +1,6 @@
 -- SPDX-License-Identifier: Unlicense
 
-local LibDBCompartment = LibStub:NewLibrary("LibDBCompartment-1.0", 3);
+local LibDBCompartment = LibStub:NewLibrary("LibDBCompartment-1.0", 4);
 
 if not LibDBCompartment then
     return;
