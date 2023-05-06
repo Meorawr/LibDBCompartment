@@ -1,5 +1,8 @@
 # LibDBCompartment
 
+## v6
+- Dropdown buttons are now registered for any click, instead of just left and right clicks.
+
 ## v5
 - Added support for compartment-specific callback functions on data objects.
 

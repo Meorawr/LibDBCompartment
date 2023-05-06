@@ -79,8 +79,8 @@ function LibDBCompartment:Refresh(name)
         buttonInfo.notCheckable = true;
     end
 
-    if buttonInfo.registerForRightClick == nil then
-        buttonInfo.registerForRightClick = true;
+    if buttonInfo.registerForAnyClick == nil then
+        buttonInfo.registerForAnyClick = true;
     end
 end
 
