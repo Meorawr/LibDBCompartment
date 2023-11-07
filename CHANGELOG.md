@@ -1,5 +1,8 @@
 # LibDBCompartment
 
+## v9
+- TOC bump.
+
 ## v8
 - TOC bump.
 
