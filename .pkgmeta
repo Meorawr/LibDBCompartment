@@ -18,7 +18,3 @@ externals:
   Libs/CallbackHandler-1.0: https://repos.curseforge.com/wow/callbackhandler/trunk/CallbackHandler-1.0
   Libs/LibDataBroker-1.1: https://github.com/tekkub/libdatabroker-1-1
   Libs/LibStub: https://repos.curseforge.com/wow/libstub/trunk
-
-manual-changelog:
-  filename: CHANGELOG.md
-  markup-type: markdown
