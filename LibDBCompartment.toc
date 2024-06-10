@@ -1,4 +1,4 @@
-## Interface: 100207
+## Interface: 100207, 110000
 ## Interface-Vanilla: 11502
 ## Interface-Cata: 40400
 ## Title: LibDBCompartment
@@ -6,7 +6,7 @@
 ## Author: Daniel "Meorawr" Yates <me@meorawr.io>
 ## Version: @project-version@
 ## IconAtlas: minortalents-icon-book
-## LoadOnDemand: 1
+## LoadOnDemand: 0
 
 ## X-Category: Libraries
 ## X-License: Public Domain
