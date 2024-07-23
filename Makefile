@@ -13,9 +13,9 @@ check:
 	@xmllint --schema <(curl -s $(SCHEMA_URL)) --noout $(shell git ls-files '*.xml')
 
 dist:
-	@curl -s $(PACKAGER_URL) | bash -s -- -d -l -S
+	@curl -s $(PACKAGER_URL) | bash -s -- -dl
 
 libs:
-	@curl -s $(PACKAGER_URL) | bash -s -- -c -d -z
+	@curl -s $(PACKAGER_URL) | bash -s -- -cdz
 	@mkdir -p Libs/
 	@cp -a .release/LibDBCompartment/Libs/* Libs/
