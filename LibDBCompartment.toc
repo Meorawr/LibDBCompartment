@@ -1,4 +1,4 @@
-## Interface: 110100, 40402, 11506
+## Interface: 110105, 40402, 11507
 ## Title: LibDBCompartment
 ## Notes: Library for handling integration into Blizzards' minimap addon compartment.
 ## Author: Daniel "Meorawr" Yates <me@meorawr.io>
